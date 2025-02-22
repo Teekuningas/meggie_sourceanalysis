@@ -7,7 +7,6 @@ import numpy as np
 from meggie.utilities.messaging import exc_messagebox
 
 from meggie.mainwindow.dynamic import Action
-from meggie.mainwindow.dynamic import subject_action
 
 
 class PlotSpectrum(Action):
@@ -26,7 +25,6 @@ class PlotSpectrum(Action):
         except Exception as exc:
             exc_messagebox(self.window, exc)
 
-    @subject_action
     def handler(self, subject, params):
         meggie_spectrum = subject.source_spectrum.get(params["name"])
         stcs = meggie_spectrum.content
